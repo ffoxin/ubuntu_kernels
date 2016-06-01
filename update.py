@@ -12,7 +12,7 @@ from urllib import request
 
 def shorten_net_speed(speed):
     mod = 1000
-    
+
     if speed < mod:
         return speed, ''
 
@@ -97,7 +97,7 @@ def main():
         for url_data in deb_urls:
             url = '{}{}'.format(*url_data)
             path = os.path.join(save_dir, url_data[1])
-            if True or not os.path.exists(path):
+            if not os.path.exists(path):
                 start_time = time.time()
                 request.urlretrieve(url, path, lambda blocks, block_size, total_size: print_status(url_data[1], blocks * block_size, total_size, start_time))
 
